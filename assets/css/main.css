@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500&display=swap');
+
+:root {
+  --adc-navy: #0f1c2e;
+  --adc-navy-2: #16273d;
+  --adc-brass: #c89b3c;
+  --adc-brass-light: #e6c878;
+  --adc-ivory: #ede6d6;
+  --adc-teal: #3a6b65;
+  --adc-muted: #93a1b0;
+  --adc-error: #d97757;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--adc-navy);
+  color: var(--adc-ivory);
+  font-family: 'Jost', sans-serif;
+  line-height: 1.65;
+}
+
+a { color: var(--adc-brass-light); text-decoration: none; }
+a:hover { color: var(--adc-brass); }
+
+.site-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header — fading eyebrow line + serif title, matches inazira.com tools site */
+.site-header {
+  padding: 40px 0 28px;
+  text-align: center;
+}
+
+.eyebrow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.eyebrow-line {
+  height: 1px;
+  width: 90px;
+}
+
+.eyebrow-line.left {
+  background: linear-gradient(to left, var(--adc-brass), transparent);
+}
+
+.eyebrow-line.right {
+  background: linear-gradient(to right, var(--adc-brass), transparent);
+}
+
+.eyebrow-text {
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 3px;
+  font-size: 13px;
+  color: var(--adc-brass);
+  text-transform: uppercase;
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--adc-brass-light);
+  margin: 0 0 8px;
+}
+
+.site-description {
+  color: var(--adc-muted);
+  font-size: 15px;
+  margin: 0;
+}
+
+.site-nav {
+  margin-top: 20px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.site-nav a {
+  color: var(--adc-ivory);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.site-nav a:hover { color: var(--adc-brass-light); }
+
+/* Cards for post listing */
+.post-card {
+  background: linear-gradient(160deg, var(--adc-navy), var(--adc-navy-2));
+  border-top: 2px solid var(--adc-brass);
+  border-radius: 12px;
+  padding: 26px 28px;
+  margin-bottom: 22px;
+}
+
+.post-card .post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--adc-brass-light);
+  margin: 0 0 8px;
+}
+
+.post-card .post-meta {
+  color: var(--adc-muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.post-card .post-excerpt {
+  color: var(--adc-ivory);
+  font-size: 15px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--adc-teal);
+}
+
+/* Single post */
+.post-content {
+  font-size: 17px;
+}
+
+.post-content h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--adc-brass-light);
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.post-header .post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: var(--adc-brass-light);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 60px;
+  padding: 24px 0 50px;
+  text-align: center;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(147, 161, 176, 0.25);
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  color: var(--adc-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .site-title { font-size: 30px; }
+  .eyebrow-line { width: 50px; }
+}

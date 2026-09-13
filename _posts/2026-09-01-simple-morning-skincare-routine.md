@@ -1,6 +1,8 @@
 ---
 title: "A Simple 4-Step Morning Skincare Routine"
 date: 2026-09-01 11:00:00 +0600
+categories: [Routines]
+tags: [morning routine, sunscreen, beginners]
 ---
 
 You don't need ten products to have healthy skin. Here's a simple morning routine that covers the essentials.

@@ -6,6 +6,16 @@ title: Home
 <div class="post-card">
   <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
   <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
+  {% if post.categories.size > 0 or post.tags.size > 0 %}
+  <div class="post-taxonomy">
+    {% for cat in post.categories %}
+      <a class="pill pill-category" href="{{ '/categories/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>
+    {% endfor %}
+    {% for tag in post.tags %}
+      <a class="pill pill-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
   <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
   <a class="read-more" href="{{ post.url | relative_url }}">Read more &rarr;</a>
 </div>

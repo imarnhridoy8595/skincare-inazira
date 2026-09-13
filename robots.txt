@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skincare.inazira.com/sitemap.xml

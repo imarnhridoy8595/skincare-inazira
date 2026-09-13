@@ -1,0 +1,38 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  {% if page.categories.size > 0 %}
+    <span class="crumb-sep">/</span>
+    <a href="{{ '/categories/' | relative_url }}#{{ page.categories[0] | slugify }}">{{ page.categories[0] }}</a>
+  {% endif %}
+  <span class="crumb-sep">/</span>
+  <span class="crumb-current">{{ page.title }}</span>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}{{ '/' | relative_url }}"
+    }
+    {% if page.categories.size > 0 %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.categories[0] | jsonify }},
+      "item": "{{ site.url }}{{ '/categories/' | relative_url }}"
+    }
+    {% endif %}
+    ,{
+      "@type": "ListItem",
+      "position": {% if page.categories.size > 0 %}3{% else %}2{% endif %},
+      "name": {{ page.title | jsonify }},
+      "item": "{{ site.url }}{{ page.url | relative_url }}"
+    }
+  ]
+}
+</script>

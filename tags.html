@@ -1,0 +1,28 @@
+---
+title: Tags
+permalink: /tags/
+---
+
+<div class="taxonomy-index-nav">
+  {% for tag in site.tags %}
+    <a class="pill pill-tag" href="#{{ tag[0] | slugify }}">#{{ tag[0] }} ({{ tag[1].size }})</a>
+  {% endfor %}
+</div>
+
+{% for tag in site.tags %}
+<div class="taxonomy-group">
+  <h2 id="{{ tag[0] | slugify }}">#{{ tag[0] }}</h2>
+  <ul class="taxonomy-post-list">
+    {% for post in tag[1] %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="taxonomy-post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
+
+{% if site.tags.size == 0 %}
+<p>No tags yet — add <code>tags: [your, tags, here]</code> to a post's front matter to get started.</p>
+{% endif %}

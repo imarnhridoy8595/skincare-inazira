@@ -1,5 +1,5 @@
-title: Inazira Skin Care
-description: Skincare tips, ingredient guides, and routines from INAZIRA.
+title: Inazira Skincare
+description: Clear, evidence-informed information about skin conditions, symptoms, treatments, ingredients and everyday skincare.
 url: "https://skincare.inazira.com"
 baseurl: ""
 
@@ -10,9 +10,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
-paginate: 6
-paginate_path: "/page:num/"
 
 defaults:
   - scope:

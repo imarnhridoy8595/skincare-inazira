@@ -2,32 +2,218 @@
 layout: default
 title: Home
 ---
-{% for post in paginator.posts %}
-<div class="post-card">
-  <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-  <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
-  {% if post.categories.size > 0 or post.tags.size > 0 %}
-  <div class="post-taxonomy">
-    {% for cat in post.categories %}
-      <a class="pill pill-category" href="{{ '/categories/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>
-    {% endfor %}
-    {% for tag in post.tags %}
-      <a class="pill pill-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">YOUR SKIN HEALTH MATTERS</div>
+      <h1>Understand Your Skin.<br>Take Better Care of It.</h1>
+      <p class="hero-sub">Clear, evidence-informed information about skin conditions, symptoms, treatments, ingredients and everyday skincare.</p>
+      <form class="hero-search" onsubmit="return false;">
+        <input type="text" placeholder="Search a skin problem, symptom or product...">
+        <button type="submit">Search</button>
+      </form>
+      <div class="popular-searches">
+        Popular searches:
+        <span class="pill-tag-sm">Acne</span>
+        <span class="pill-tag-sm">Eczema</span>
+        <span class="pill-tag-sm">Itching</span>
+        <span class="pill-tag-sm">Dark spots</span>
+      </div>
+      <div class="hero-links">
+        <a href="{{ '/categories/' | relative_url }}">Explore skin conditions &rarr;</a>
+        <a href="{{ '/blog/' | relative_url }}">Browse skincare guides &rarr;</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-blob" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M320 200C320 270 270 330 195 330C120 330 70 280 70 210C70 140 115 75 200 75C280 75 320 130 320 200Z" fill="#dbe9e1"/>
+        <path d="M150 190C150 160 175 140 210 140C245 140 265 165 265 200C265 235 240 255 205 255C170 255 150 225 150 190Z" fill="#c3e0d3"/>
+        <circle cx="150" cy="150" r="10" fill="#1d6b56" opacity="0.5"/>
+        <circle cx="270" cy="240" r="7" fill="#1d6b56" opacity="0.35"/>
+      </svg>
+      <div class="hero-note">Healthy skin<br>builds confidence</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>What are you looking for?</h2>
+    <p>Find the right information based on your needs.</p>
+  </div>
+  <div class="finder-grid">
+    <a class="finder-card" href="{{ '/categories/' | relative_url }}">
+      <div class="finder-icon" style="background: var(--pill-green);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d6b56" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <h3>Skin Conditions</h3>
+      <p>Learn about common and rare skin conditions</p>
+      <span class="finder-link">Explore &rarr;</span>
+    </a>
+    <a class="finder-card" href="{{ '/categories/' | relative_url }}">
+      <div class="finder-icon" style="background: var(--pill-pink);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9573f" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 7 5c2 0 4 1.5 5 3 1-1.5 3-3 5-3 4 0 6.5 3.5 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
+      </div>
+      <h3>Skin Symptoms</h3>
+      <p>Understand what your skin is telling you</p>
+      <span class="finder-link">Explore &rarr;</span>
+    </a>
+    <a class="finder-card" href="{{ '/categories/' | relative_url }}">
+      <div class="finder-icon" style="background: var(--pill-purple);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a5aa3" stroke-width="1.8"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5L11 16M15.5 7.5L13 16M9 6h6"/></svg>
+      </div>
+      <h3>Skin Concerns</h3>
+      <p>Tackle pigmentation, aging, scars and more</p>
+      <span class="finder-link">Explore &rarr;</span>
+    </a>
+    <a class="finder-card" href="{{ '/tags/' | relative_url }}">
+      <div class="finder-icon" style="background: var(--pill-blue);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a6ea5" stroke-width="1.8"><path d="M9 2h6l1 7-4 4-4-4 1-7z"/><path d="M8 13a4 4 0 108 0"/></svg>
+      </div>
+      <h3>Ingredients</h3>
+      <p>Learn about active ingredients and their benefits</p>
+      <span class="finder-link">Explore &rarr;</span>
+    </a>
+    <a class="finder-card" href="{{ '/blog/' | relative_url }}">
+      <div class="finder-icon" style="background: var(--pill-yellow);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8860f" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Skin Care</h3>
+      <p>Build a healthy skincare routine</p>
+      <span class="finder-link">Explore &rarr;</span>
+    </a>
+    <a class="finder-card" href="{{ '/categories/' | relative_url }}">
+      <div class="finder-icon" style="background: var(--pill-teal);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d6b56" stroke-width="1.8"><circle cx="9" cy="7" r="3"/><path d="M2 21a7 7 0 0114 0"/><circle cx="18" cy="9" r="2"/></svg>
+      </div>
+      <h3>Children's Skin</h3>
+      <p>Special care for delicate skin</p>
+      <span class="finder-link">Explore &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="section-head-row">
+    <div>
+      <h2>Popular Skin Problems</h2>
+    </div>
+    <a class="view-all-link" href="{{ '/categories/' | relative_url }}">View all &rarr;</a>
+  </div>
+  <div class="problem-grid">
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-pink);"></span> Acne</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-purple);"></span> Melasma</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-blue);"></span> Eczema</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-yellow);"></span> Dark spots</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-teal);"></span> Psoriasis</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-green);"></span> Scabies</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-pink);"></span> Fungal infection</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-purple);"></span> Hives</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-blue);"></span> Skin allergy</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-yellow);"></span> Rosacea</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-teal);"></span> Itching</a>
+    <a class="problem-item" href="{{ '/categories/' | relative_url }}"><span class="problem-dot" style="background: var(--pill-green);"></span> Warts</a>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="feature-banner">
+    <div class="feature-visual">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#12463a" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#12463a"/><circle cx="14" cy="9" r="1" fill="#12463a"/><circle cx="15" cy="13" r="1" fill="#12463a"/><circle cx="10" cy="14" r="1" fill="#12463a"/></svg>
+    </div>
+    <div class="feature-content">
+      <div class="feature-eyebrow">FEATURED CONDITION</div>
+      <h2>Acne</h2>
+      <p>Acne is one of the most common skin conditions, affecting people of all ages. Learn about its causes, symptoms, types and effective treatments.</p>
+      <a class="btn-primary" href="{{ '/categories/' | relative_url }}">Explore Acne &rarr;</a>
+    </div>
+    <div class="feature-jumplist">
+      <a href="#">Symptoms</a>
+      <a href="#">Causes</a>
+      <a href="#">Treatment</a>
+      <a href="#">Prevention</a>
+      <a href="#">FAQs</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="two-col-sections">
+    <div>
+      <div class="section-head">
+        <h2>Browse by Symptom</h2>
+        <p>Not sure what condition you have? Start with how your skin feels.</p>
+      </div>
+      <div class="icon-row">
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-pink);">🔥</span><span>Itchy</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-pink);">●</span><span>Red</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-blue);">〜</span><span>Dry</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-yellow);">•••</span><span>Bumpy</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-purple);">≈</span><span>Peeling</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-pink);">🔥</span><span>Burning</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-blue);">◐</span><span>Swollen</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-purple);">◑</span><span>Discolored</span></div>
+        <div class="icon-chip"><span class="icon-circle" style="background: var(--pill-pink);">!</span><span>Painful</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-head">
+        <h2>Skincare Ingredients</h2>
+        <p>Discover the science behind healthier skin.</p>
+      </div>
+      <div class="icon-row">
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-blue);">Ni</span><span>Niacinamide</span></a>
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-yellow);">Vc</span><span>Vitamin C</span></a>
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-pink);">Rt</span><span>Retinol</span></a>
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-purple);">Ha</span><span>Hyaluronic Acid</span></a>
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-green);">Sa</span><span>Salicylic Acid</span></a>
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-blue);">Ga</span><span>Glycolic Acid</span></a>
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-yellow);">Ce</span><span>Ceramides</span></a>
+        <a class="icon-chip" href="{{ '/tags/' | relative_url }}"><span class="icon-circle" style="background: var(--pill-purple);">Zn</span><span>Zinc</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="library-card">
+    <div class="section-head">
+      <h2>Skin Condition Library</h2>
+      <p>Explore our complete A-Z guide to skin conditions.</p>
+    </div>
+    <div class="az-row">
+      {% assign alphabet = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" | split: "," %}
+      {% for letter in alphabet %}
+        <span class="az-letter">{{ letter }}</span>
+      {% endfor %}
+    </div>
+    <div class="az-entry"><span class="az-letter-badge">A</span><span>Acne, Alopecia, Athlete's foot, Atopic dermatitis</span></div>
+    <div class="az-entry"><span class="az-letter-badge">B</span><span>Bed bugs, Boils, Burns</span></div>
+    <div class="az-entry"><span class="az-letter-badge">C</span><span>Cellulitis, Cold sores, Contact dermatitis</span></div>
+    <div class="az-entry"><span class="az-letter-badge">D</span><span>Dermatitis, Dandruff, Diabetes (skin problems)</span></div>
+    <p style="margin-top:16px;"><a class="view-all-link" href="{{ '/categories/' | relative_url }}">View all conditions &rarr;</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head-row">
+    <div>
+      <h2>Latest from Inazira Skincare</h2>
+      <p>Practical tips and skincare insights.</p>
+    </div>
+    <a class="view-all-link" href="{{ '/blog/' | relative_url }}">View all articles &rarr;</a>
+  </div>
+  <div class="article-grid">
+    {% for post in site.posts limit:4 %}
+    <a class="article-card" href="{{ post.url | relative_url }}">
+      <div class="article-thumb"></div>
+      <div class="article-card-body">
+        {% if post.categories.size > 0 %}<div class="article-category">{{ post.categories[0] | upcase }}</div>{% endif %}
+        <h3>{{ post.title }}</h3>
+        <div class="article-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+      </div>
+    </a>
     {% endfor %}
   </div>
-  {% endif %}
-  <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
-  <a class="read-more" href="{{ post.url | relative_url }}">Read more &rarr;</a>
-</div>
-{% endfor %}
-
-{% if paginator.total_pages > 1 %}
-<nav class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
-  {% endif %}
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
-  {% endif %}
-</nav>
-{% endif %}
+</section>
